@@ -189,21 +189,19 @@ const openTask = (e) => {
     if (!e) e = window.event;
   
     const targetID = e.target.getAttribute("name");
-    console.log(e.target);
-    console.log(targetID);
-    console.log(state.taskList)
+    // console.log(targetID);
   
     const type = e.target.tagName;
-    console.log(type)
+    // console.log(type)
   
     const removeTask = state.taskList.filter(({ id }) => id !== targetID);
-    console.log(removeTask);
+    // console.log(removeTask);
   
     state.taskList = removeTask;
     updateLocalStorage();
   
     if (type === "BUTTON") {
-      console.log(e.target.parentNode.parentNode.parentNode);
+      // console.log(e.target.parentNode.parentNode.parentNode);
       return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
         e.parentNode.parentNode.parentNode
       );
@@ -219,18 +217,19 @@ const openTask = (e) => {
     if (!e) e = window.event;
   
     const targetID = e.target.getAttribute("name");
-    console.log(e.target);
-    console.log(targetID);
+    // console.log(targetID);
+  
     const type = e.target.tagName;
+    // console.log(type)
+  
     const removeTask = state.completedTask.filter(({ id }) => id !== targetID);
-    console.log(state.completedTask)
-    console.log('remove'+ state.completedTask.filter(({ id }) => id !== targetID));
+    // console.log(removeTask);
   
     state.completedTask = removeTask;
     updateLocalStorage();
   
     if (type === "BUTTON") {
-      console.log(e.target.parentNode.parentNode.parentNode);
+      // console.log(e.target.parentNode.parentNode.parentNode);
       return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
         e.parentNode.parentNode.parentNode
       );
@@ -367,7 +366,7 @@ const completTask = (e) =>{
     
   
     if (type === "BUTTON") {
-      console.log(e.target.parentNode.parentNode.parentNode);
+      // console.log(e.target.parentNode.parentNode.parentNode);
       return e.target.parentNode.parentNode.parentNode.parentNode.removeChild(
         e.parentNode.parentNode.parentNode
       );
