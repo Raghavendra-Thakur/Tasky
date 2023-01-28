@@ -1,0 +1,67 @@
+body {
+  background: linear-gradient(to right, #2bc0e4, #eaecc6);
+ 
+}
+#nav {
+  background: rgba(202, 226, 238, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgb(238, 241, 246);
+}
+
+#btn1,#btn2 {
+  background-color: rgba(202, 226, 238, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 2px solid rgb(238, 241, 246);
+  
+  
+}
+#btn1:hover{
+    background-color: rgba(11, 252, 244, 0.794);
+    border-color: rgb(240, 6, 193);
+    transition: all 2s cubic-bezier(0.5,0.5,0,1); ;
+}
+#btn2:hover{
+  background-color: rgba(11, 252, 244, 0.794);
+  border-color: rgb(240, 6, 193);
+  transition: all 2s cubic-bezier(0.5,0.5,0,1); ;
+}
+
+#inp1,#inpdiv,#inpspan{
+  background-color: transparent;
+  color: black;
+}
+
+#inp1,#inpspan{
+  border: 0px;
+  
+}
+
+#model_content{
+  background-color: rgba(164, 241, 239, 0.2);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.btn__on_mobile_screen{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 15px;
+  z-index: 3;
+ 
+  
+}
+
+@media (min-width: 991px){
+  .btn__on_mobile_screen{
+    display: none;
+  }
+  
+}
