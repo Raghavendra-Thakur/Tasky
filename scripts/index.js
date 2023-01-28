@@ -55,6 +55,10 @@ const htmlCompTaskContent = ({ id, title, description, type, url }) => `
 <div class="col-md-6 col-lg-4 mt-3"  id=${id} key=${id}>
     <div class="card shadow-sm task__card">
     <div class='card-header d-flex gap-2 justify-content-end task__card__header'>
+   
+    <button type='button' class='btn btn-outline-info mr-2' name=${id} onclick="editTask.apply(this, arguments)">
+      <i class='fas fa-pencil-alt' name=${id}></i>
+    </button>
     <button type='button' class='btn btn-outline-danger mr-2' name=${id} onclick="deletecompTask.apply(this, arguments)">
       <i class='fas fa-trash-alt' name=${id}></i>
     </button>
@@ -119,7 +123,8 @@ const LoadInitialData = () => {
   const localStorageCopy = JSON.parse(localStorage.task);
 
   if (localStorageCopy) state.taskList = localStorageCopy.task;
-
+  console.log(localStorageCopy)
+  console.log(state.taskList)
   state.taskList.map((cardData) => {
     taskcontent.insertAdjacentHTML("beforeend", htmlTaskContent(cardData));
   });
@@ -131,11 +136,16 @@ const LoadInitialData2 = () => {
 
   if (localStorageCopy) state.completedTask = localStorageCopy.completedTask;
   
+  console.log(localStorageCopy)
+  console.log(state.completedTask)
+
   
   state.completedTask.map((cardData) => {
+  
     completetasktaskcontent.insertAdjacentHTML("beforeend", htmlCompTaskContent(cardData));
+    
   });
-  // console.log(state.completedTask)
+
 };
 
 const handleSubmit = (event) => {
@@ -179,6 +189,7 @@ const openTask = (e) => {
     if (!e) e = window.event;
   
     const targetID = e.target.getAttribute("name");
+    console.log(e.target);
     console.log(targetID);
     console.log(state.taskList)
   
@@ -208,13 +219,12 @@ const openTask = (e) => {
     if (!e) e = window.event;
   
     const targetID = e.target.getAttribute("name");
-  
-  
+    console.log(e.target);
+    console.log(targetID);
     const type = e.target.tagName;
-    console.log(type)
-  
     const removeTask = state.completedTask.filter(({ id }) => id !== targetID);
-  
+    console.log(state.completedTask)
+    console.log('remove'+ state.completedTask.filter(({ id }) => id !== targetID));
   
     state.completedTask = removeTask;
     updateLocalStorage();
@@ -337,7 +347,7 @@ const completTask = (e) =>{
     console.log(type)
   
     const comptask = state.taskList.filter(({ id }) => id === targetID);
-    console.log(...comptask)
+    console.log(comptask)
 
     const removeTask = state.taskList.filter(({ id }) => id !== targetID);
     console.log(removeTask);
@@ -345,8 +355,8 @@ const completTask = (e) =>{
 
     
     
-    state.completedTask.push(comptask)
-   
+    state.completedTask.push(comptask[0])
+    
     completetasktaskcontent.insertAdjacentHTML(
       "beforeend",
       htmlCompTaskContent(...comptask)
